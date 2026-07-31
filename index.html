@@ -8,7 +8,7 @@
 
 <title>Timo Club Unlimited</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
 
 
 <style>
@@ -17,14 +17,15 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Cairo,sans-serif;
+font-family:'Cairo',sans-serif;
 }
 
 
 body{
 
-background:#080814;
+background:#070711;
 color:white;
+min-height:100vh;
 
 }
 
@@ -34,7 +35,7 @@ color:white;
 
 --main:#8b5cf6;
 --blue:#2563eb;
---card:#ffffff15;
+--card:#ffffff14;
 
 }
 
@@ -44,6 +45,8 @@ header{
 
 position:fixed;
 top:0;
+right:0;
+
 width:100%;
 
 padding:15px;
@@ -86,6 +89,32 @@ color:transparent;
 
 
 
+.top-actions{
+
+display:flex;
+
+gap:10px;
+
+align-items:center;
+
+}
+
+
+
+.lang{
+
+background:#ffffff20;
+
+padding:8px 15px;
+
+border-radius:20px;
+
+cursor:pointer;
+
+}
+
+
+
 .stats{
 
 display:flex;
@@ -100,9 +129,11 @@ gap:10px;
 
 background:#ffffff15;
 
-padding:8px 15px;
+padding:8px 12px;
 
 border-radius:20px;
+
+font-size:13px;
 
 }
 
@@ -114,7 +145,7 @@ display:none;
 
 min-height:100vh;
 
-padding:120px 20px 70px;
+padding:120px 20px 90px;
 
 }
 
@@ -135,13 +166,16 @@ animation:show .4s;
 from{
 
 opacity:0;
-transform:translateY(20px);
+
+transform:translateY(25px);
 
 }
 
 to{
 
 opacity:1;
+
+transform:none;
 
 }
 
@@ -151,7 +185,7 @@ opacity:1;
 
 .container{
 
-max-width:700px;
+max-width:1000px;
 
 margin:auto;
 
@@ -161,27 +195,15 @@ margin:auto;
 
 .card{
 
-background:white;
+background:#ffffff12;
 
-color:#222;
+border:1px solid #ffffff25;
 
 border-radius:30px;
 
-padding:25px;
+padding:30px;
 
-box-shadow:0 10px 40px #0005;
-
-}
-
-
-
-.dark-card{
-
-background:#ffffff12;
-
-color:white;
-
-border:1px solid #ffffff20;
+backdrop-filter:blur(15px);
 
 }
 
@@ -189,9 +211,11 @@ border:1px solid #ffffff20;
 
 .center{
 
-text-align:center;
+max-width:550px;
 
-margin-top:80px;
+margin:70px auto;
+
+text-align:center;
 
 }
 
@@ -199,9 +223,9 @@ margin-top:80px;
 
 .logo-box{
 
-width:120px;
+width:130px;
 
-height:120px;
+height:130px;
 
 margin:auto;
 
@@ -213,11 +237,33 @@ align-items:center;
 
 justify-content:center;
 
-font-size:60px;
+font-size:65px;
 
 font-weight:900;
 
 background:linear-gradient(135deg,#8b5cf6,#2563eb);
+
+box-shadow:0 0 50px #8b5cf6;
+
+}
+
+
+
+h1{
+
+margin:25px 0;
+
+font-size:36px;
+
+}
+
+
+
+h2{
+
+text-align:center;
+
+margin-bottom:30px;
 
 }
 
@@ -225,15 +271,13 @@ background:linear-gradient(135deg,#8b5cf6,#2563eb);
 
 button{
 
-width:100%;
-
-padding:15px;
-
 border:0;
+
+padding:15px 25px;
 
 border-radius:15px;
 
-background:#8b5cf6;
+background:linear-gradient(135deg,#8b5cf6,#2563eb);
 
 color:white;
 
@@ -243,7 +287,15 @@ font-weight:bold;
 
 cursor:pointer;
 
-margin-top:10px;
+transition:.3s;
+
+}
+
+
+
+button:hover{
+
+transform:translateY(-4px);
 
 }
 
@@ -253,7 +305,19 @@ margin-top:10px;
 
 display:flex;
 
-gap:20px;
+justify-content:center;
+
+gap:25px;
+
+margin-top:30px;
+
+}
+
+
+
+.choice button{
+
+width:150px;
 
 }
 
@@ -283,81 +347,91 @@ z-index:300;
 
 
 
-.payment-buttons{
+.plans-grid{
 
 display:grid;
 
-grid-template-columns:repeat(3,1fr);
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
 
-gap:15px;
+gap:20px;
 
 }
 
 
 
-.pay{
+.plan{
 
-background:#ffffff20;
+text-align:center;
 
-padding:20px;
+}
+
+
+
+.duration{
+
+display:inline-block;
+
+background:linear-gradient(135deg,#8b5cf6,#2563eb);
+
+padding:10px 25px;
+
+border-radius:30px;
+
+font-size:22px;
+
+font-weight:900;
+
+margin-bottom:15px;
+
+}
+
+
+
+.unlimited{
+
+font-size:18px;
+
+color:#38bdf8;
+
+margin-bottom:10px;
+
+}
+
+
+
+.price{
+
+font-size:32px;
+
+font-weight:900;
+
+}
+
+
+
+.old{
+
+text-decoration:line-through;
+
+color:#aaa;
+
+font-size:18px;
+
+}
+
+
+
+.badge{
+
+background:#f59e0b;
+
+padding:6px 15px;
 
 border-radius:20px;
 
-text-align:center;
+display:inline-block;
 
-cursor:pointer;
-
-}
-
-
-
-.pay.active{
-
-background:#8b5cf6;
-
-}
-
-
-
-.invoice-title{
-
-text-align:center;
-
-color:#8b5cf6;
-
-font-size:25px;
-
-font-weight:bold;
-
-}
-
-
-
-.info{
-
-background:#f5f5f5;
-
-border-radius:15px;
-
-padding:15px;
-
-margin-top:15px;
-
-}
-
-
-
-input{
-
-width:100%;
-
-padding:15px;
-
-border-radius:12px;
-
-border:1px solid #ddd;
-
-margin-top:10px;
+margin-bottom:15px;
 
 }
 
@@ -387,7 +461,9 @@ bottom:25px;
 
 background:white;
 
-color:#000;
+color:black;
+
+display:none;
 
 }
 
@@ -399,17 +475,7 @@ bottom:90px;
 
 background:#22c55e;
 
-}
-
-
-
-.policy{
-
-font-size:13px;
-
-color:#555;
-
-margin-top:20px;
+display:none;
 
 }
 
@@ -425,22 +491,45 @@ margin-top:20px;
 
 <header>
 
+
 <div class="nav">
+
 
 <div class="logo">
 Timo Club
 </div>
 
 
+
+<div class="top-actions">
+
+
+<div class="lang" onclick="changeLanguage()">
+
+🌐 AR
+
+</div>
+
+
+
 <div class="stats">
 
-<div class="stat">
-👥 <span id="visits">34123</span>
-</div>
-
 
 <div class="stat">
-🟢 <span id="online">300</span>
+
+👥 <span id="visits">
+34123
+</span>
+
+</div>
+
+
+<div class="stat">
+
+🟢 <span id="online">
+300
+</span>
+
 </div>
 
 
@@ -448,8 +537,13 @@ Timo Club
 
 
 </div>
+
+
+</div>
+
 
 </header>
+
 
 
 <div class="toast" id="toast">
@@ -460,10 +554,11 @@ Timo Club
 
 
 
+
 <div class="page active" id="welcome">
 
 
-<div class="card dark-card center">
+<div class="card center">
 
 
 <div class="logo-box">
@@ -471,35 +566,44 @@ T
 </div>
 
 
-<h1>
+<h1 id="welcomeTitle">
 Timo Club Unlimited
 </h1>
 
 
-<p>
+
+<p id="firstQuestion">
 هل هذه أول مرة تستخدم الموقع؟
 </p>
 
 
+
 <div class="choice">
 
+
 <button onclick="firstUser()">
+
 نعم
+
 </button>
 
 
 <button onclick="normalUser()">
+
 لا
+
 </button>
 
 
 </div>
 
 
+
 </div>
 
 
-</div> <!-- صفحة الاشتراكات -->
+</div> 
+<!-- صفحة الاشتراكات -->
 
 <div class="page" id="plans">
 
@@ -507,21 +611,13 @@ Timo Club Unlimited
 <div class="container">
 
 
-<div class="card dark-card">
-
-
-<h2>
+<h2 id="plansTitle">
 اشتراكات Unlimited
 </h2>
 
 
 
-<div id="plansBox">
-
-
-</div>
-
-
+<div class="plans-grid" id="plansBox">
 
 </div>
 
@@ -530,6 +626,8 @@ Timo Club Unlimited
 
 
 </div>
+
+
 
 
 
@@ -546,10 +644,10 @@ Timo Club Unlimited
 <div class="container">
 
 
-<div class="card dark-card">
+<div class="card">
 
 
-<h2>
+<h2 id="detailsTitle">
 مميزات الاشتراك
 </h2>
 
@@ -561,37 +659,52 @@ Timo Club Unlimited
 
 
 
-<ul>
+
+<ul id="features">
+
 
 <li>
 ✅ مكالمات فيديو
 </li>
 
+
 <li>
 ✅ مكالمات صوتية
 </li>
+
 
 <li>
 ✅ رسائل طوال فترة الاشتراك
 </li>
 
+
 <li>
 ✅ جميع خدمات Timo Club
 </li>
+
 
 </ul>
 
 
 
-<div style="background:#7c2d12;padding:15px;border-radius:15px;margin-top:20px">
 
-⚠️ الاشتراك لا يدعم إرسال الهدايا.
+<div style="
+background:#7c2d12;
+padding:15px;
+border-radius:15px;
+margin-top:20px;
+">
+
+⚠️ <span id="giftText">
+الاشتراك لا يدعم إرسال الهدايا.
+</span>
 
 </div>
 
 
 
-<button onclick="openPaymentMethods()">
+
+<button onclick="openMethods()" id="paymentButton">
 
 اختيار طريقة الدفع
 
@@ -624,99 +737,127 @@ Timo Club Unlimited
 <div class="container">
 
 
-<div class="card dark-card">
+<div class="card">
 
 
-<h2>
+<h2 id="methodsTitle">
 اختر طريقة الدفع
 </h2>
 
 
 
-<div class="payment-buttons">
+
+<div class="plans-grid">
 
 
 
-<div class="pay" onclick="selectPayment('Vodafone Cash',this)">
+<div class="card" onclick="choosePayment('Vodafone Cash')">
 
+<h2>
 🟢
+</h2>
 
-<br>
+<h3 id="vodafone">
+فودافون كاش
+</h3>
 
-Vodafone Cash
 
 </div>
 
 
 
-<div class="pay" onclick="selectPayment('InstaPay',this)">
 
+
+<div class="card" onclick="choosePayment('InstaPay')">
+
+<h2>
 🔵
+</h2>
 
-<br>
+<h3 id="instapay">
+إنستا باي
+</h3>
 
-InstaPay
 
 </div>
 
 
 
-<div class="pay" onclick="selectPayment('Etisalat Cash',this)">
 
+
+<div class="card" onclick="choosePayment('Etisalat Cash')">
+
+<h2>
 🟣
+</h2>
 
-<br>
+<h3 id="etisalat">
+اتصالات كاش
+</h3>
 
-Etisalat Cash
 
 </div>
 
 
 
-<div class="pay" style="opacity:.4">
 
+
+<div class="card" style="opacity:.4">
+
+<h2>
 🟠
+</h2>
 
-<br>
-
+<h3>
 Orange Cash
 
-<br>
+</h3>
 
-غير متاح
+<p id="disabled">
+غير متاح حالياً
+</p>
+
 
 </div>
 
 
 
-<div class="pay" style="opacity:.4">
 
+
+<div class="card" style="opacity:.4">
+
+
+<h2>
 🏦
-
-<br>
-
-تحويل بنكي
-
-<br>
-
-غير متاح
-
-</div>
+</h2>
 
 
+<h3>
+Bank Transfer
 
-</div>
+</h3>
+
+
+<p id="disabled2">
+غير متاح حالياً
+</p>
 
 
 
 </div>
 
 
+
+</div>
+
+
 </div>
 
 
 </div>
 
+
+</div>
 
 
 
@@ -735,35 +876,37 @@ Orange Cash
 <div class="container">
 
 
-<div class="card">
+<div class="card" style="color:#222;background:white">
 
 
-<div class="invoice-title">
+<h2 id="invoiceTitle">
 
 فاتورة الدفع
 
+</h2>
+
+
+
+
+<div id="invoiceBox">
+
 </div>
 
 
 
-<div id="invoiceData" class="info">
 
 
-</div>
-
-
+<input id="accountID" placeholder="ID حساب Timo Club">
 
 
 
-<input id="userID" placeholder="ID حساب Timo داخل التطبيق">
+<input id="senderNumber" placeholder="رقم الهاتف الذي تم الدفع منه">
 
 
 
-<input id="payNumber" placeholder="رقم الهاتف الذي تم الدفع منه">
 
 
-
-<div id="refundArea">
+<div id="refundBox">
 
 
 <input id="refundNumber" placeholder="رقم الاسترداد">
@@ -773,56 +916,44 @@ Orange Cash
 
 
 
-<label>
+<label id="uploadText">
 
 📎 إرفاق صورة التحويل
 
 </label>
 
 
-<input type="file" id="proof">
+<input type="file">
 
 
 
 
 
-<button onclick="sendWhatsapp()">
+<button onclick="sendWhatsapp()" id="sendButton">
 
-إرسال الطلب على واتساب
-
-</button>
-
-
-
-<a href="mailto:tiimoclub@gmail.com?subject=خدمة عملاء Timo Club">
-
-<button style="background:#22c55e">
-
-خدمة العملاء
+إرسال الطلب عبر واتساب
 
 </button>
 
-</a>
 
 
 
 
 
-<div class="policy">
+<div class="card" style="margin-top:20px;color:#555">
 
 
-<h3>
+<h3 id="policyTitle">
+
 سياسات الدفع والاسترداد
+
 </h3>
 
 
-<p>
 
-- يرجى التأكد من صحة البيانات قبل الإرسال.
+<p id="policyText">
 
-<br>
-
-- لا يتم تنفيذ الاشتراك قبل مراجعة الدفع.
+- يتم تنفيذ الاشتراك بعد مراجعة الدفع.
 
 <br>
 
@@ -854,7 +985,9 @@ Orange Cash
 
 
 
-<!-- الأزرار العائمة -->
+
+
+<!-- أزرار عائمة -->
 
 
 <button class="floating support" id="supportBtn" onclick="openSupport()">
@@ -865,26 +998,247 @@ Orange Cash
 
 
 
-<button class="floating back" id="backBtn" onclick="backPage()">
+
+<button class="floating back" id="backBtn" onclick="goBack()">
 
 ←
 
-</button> <script>
+</button>
+
+<script>
 
 
 let discount=false;
 
 let selectedPlan="";
+
 let selectedPrice="";
-let oldSelectedPrice="";
 
-let paymentMethod="";
+let selectedPayment="";
 
-
-
+let lang="ar";
 
 
-// فتح الصفحات
+
+
+
+// تغيير اللغة
+
+function changeLanguage(){
+
+
+if(lang=="ar"){
+
+lang="en";
+
+document.documentElement.dir="ltr";
+
+document.documentElement.lang="en";
+
+
+document.querySelector(".lang").innerHTML="🌐 EN";
+
+
+translateEnglish();
+
+
+}else{
+
+
+lang="ar";
+
+document.documentElement.dir="rtl";
+
+document.documentElement.lang="ar";
+
+
+document.querySelector(".lang").innerHTML="🌐 AR";
+
+
+translateArabic();
+
+
+}
+
+
+
+localStorage.setItem("language",lang);
+
+
+}
+
+
+
+
+
+
+
+
+function translateEnglish(){
+
+
+document.getElementById("welcomeTitle").innerHTML=
+"Timo Club Unlimited";
+
+
+document.getElementById("firstQuestion").innerHTML=
+"Is this your first time using our website?";
+
+
+
+document.querySelectorAll(".choice button")[0].innerHTML="Yes";
+
+document.querySelectorAll(".choice button")[1].innerHTML="No";
+
+
+document.getElementById("plansTitle").innerHTML=
+"Unlimited Subscriptions";
+
+
+document.getElementById("detailsTitle").innerHTML=
+"Subscription Features";
+
+
+document.getElementById("paymentButton").innerHTML=
+"Choose Payment Method";
+
+
+document.getElementById("methodsTitle").innerHTML=
+"Choose Payment";
+
+
+document.getElementById("invoiceTitle").innerHTML=
+"Payment Invoice";
+
+
+document.getElementById("vodafone").innerHTML=
+"Vodafone Cash";
+
+
+document.getElementById("instapay").innerHTML=
+"InstaPay";
+
+
+document.getElementById("etisalat").innerHTML=
+"Etisalat Cash";
+
+
+
+document.getElementById("sendButton").innerHTML=
+"Send Order via WhatsApp";
+
+
+
+document.getElementById("policyTitle").innerHTML=
+"Payment & Refund Policy";
+
+
+
+document.getElementById("uploadText").innerHTML=
+"📎 Upload Payment Screenshot";
+
+
+}
+
+
+
+
+
+
+function translateArabic(){
+
+
+document.getElementById("welcomeTitle").innerHTML=
+"Timo Club Unlimited";
+
+
+document.getElementById("firstQuestion").innerHTML=
+"هل هذه أول مرة تستخدم الموقع؟";
+
+
+document.querySelectorAll(".choice button")[0].innerHTML="نعم";
+
+document.querySelectorAll(".choice button")[1].innerHTML="لا";
+
+
+document.getElementById("plansTitle").innerHTML=
+"اشتراكات Unlimited";
+
+
+document.getElementById("detailsTitle").innerHTML=
+"مميزات الاشتراك";
+
+
+document.getElementById("paymentButton").innerHTML=
+"اختيار طريقة الدفع";
+
+
+document.getElementById("methodsTitle").innerHTML=
+"اختر طريقة الدفع";
+
+
+document.getElementById("invoiceTitle").innerHTML=
+"فاتورة الدفع";
+
+
+document.getElementById("vodafone").innerHTML=
+"فودافون كاش";
+
+
+document.getElementById("instapay").innerHTML=
+"إنستا باي";
+
+
+document.getElementById("etisalat").innerHTML=
+"اتصالات كاش";
+
+
+document.getElementById("sendButton").innerHTML=
+"إرسال الطلب عبر واتساب";
+
+
+document.getElementById("policyTitle").innerHTML=
+"سياسات الدفع والاسترداد";
+
+
+document.getElementById("uploadText").innerHTML=
+"📎 إرفاق صورة التحويل";
+
+
+}
+
+
+
+
+
+
+
+
+
+// تشغيل اللغة المحفوظة
+
+
+let savedLang=localStorage.getItem("language");
+
+
+if(savedLang=="en"){
+
+lang="ar";
+
+changeLanguage();
+
+}
+
+
+
+
+
+
+
+
+
+// الصفحات
+
 
 function showPage(id){
 
@@ -902,39 +1256,40 @@ document.getElementById(id).classList.add("active");
 
 if(id=="welcome"){
 
-document.getElementById("backBtn").style.display="none";
 
-document.getElementById("supportBtn").style.display="none";
+backBtn.style.display="none";
+
+supportBtn.style.display="none";
 
 
 }else{
 
 
-document.getElementById("backBtn").style.display="block";
+backBtn.style.display="block";
 
-document.getElementById("supportBtn").style.display="block";
-
-
-}
-
+supportBtn.style.display="block";
 
 
 }
 
 
 
+}
 
 
 
 
 
-// أول مرة
+
+
+
+// أول مستخدم
+
 
 function firstUser(){
 
 
 discount=true;
-
 
 
 document.getElementById("toast").style.display="block";
@@ -956,7 +1311,6 @@ loadPlans();
 showPage("plans");
 
 
-
 }
 
 
@@ -964,7 +1318,6 @@ showPage("plans");
 
 
 
-// مش أول مرة
 
 function normalUser(){
 
@@ -987,26 +1340,32 @@ showPage("plans");
 
 
 
+// إنشاء الاشتراكات
 
-// الاشتراكات
 
 function loadPlans(){
 
 
-
 let plans=[
+
 
 ["شهر","865","780"],
 
+
 ["شهرين","1450","1305"],
+
 
 ["3 شهور","2050","1845"],
 
+
 ["5 شهور","2500","2250"],
+
 
 ["6 شهور","3650","3285"],
 
+
 ["12 شهر","6895","6205"]
+
 
 ];
 
@@ -1025,54 +1384,51 @@ let price=discount?p[2]:p[1];
 html+=`
 
 
-<div class="info" style="text-align:center">
+<div class="card plan">
 
 
-<h3>
-Unlimited ${p[0]}
-</h3>
+<div class="duration">
+
+⭐ ${p[0]}
+
+</div>
+
+
+
+<div class="unlimited">
+
+Unlimited
+
+</div>
+
 
 
 ${discount?
 
 `
-<span style="text-decoration:line-through;color:#999">
-
+<div class="old">
 ${p[1]} جنيه
+</div>
+`
 
-</span>
+:""}
 
-<br>
 
-<strong style="font-size:25px;color:#8b5cf6">
+
+<div class="price">
 
 ${price} جنيه
 
-</strong>
-
-`
-
-:
-
-`
-
-<strong style="font-size:25px;color:#8b5cf6">
-
-${price} جنيه
-
-</strong>
-
-`
-
-}
+</div>
 
 
 
-<button onclick="choosePlan('${p[0]}','${p[1]}','${p[2]}')">
+<button onclick="choosePlan('${p[0]}','${price}')">
 
 اختيار
 
 </button>
+
 
 
 </div>
@@ -1081,13 +1437,11 @@ ${price} جنيه
 `;
 
 
-
 });
 
 
 
-document.getElementById("plansBox").innerHTML=html;
-
+plansBox.innerHTML=html;
 
 
 }
@@ -1100,39 +1454,32 @@ document.getElementById("plansBox").innerHTML=html;
 
 
 
-
-// اختيار الاشتراك
-
-function choosePlan(name,old,discounted){
+function choosePlan(name,price){
 
 
 selectedPlan=name;
 
-oldSelectedPrice=old;
-
-
-selectedPrice=discount?discounted:old;
+selectedPrice=price;
 
 
 
-document.getElementById("detailsBox").innerHTML=
+detailsBox.innerHTML=
 
 `
 
 <h3>
 
-اشتراك Unlimited ${name}
+Unlimited ${name}
 
 </h3>
 
 
-<p>
+<h2>
 
-السعر النهائي:
+${price} جنيه
 
-${selectedPrice} جنيه
+</h2>
 
-</p>
 
 `;
 
@@ -1141,7 +1488,6 @@ ${selectedPrice} جنيه
 showPage("details");
 
 
-
 }
 
 
@@ -1151,9 +1497,7 @@ showPage("details");
 
 
 
-// طرق الدفع
-
-function openPaymentMethods(){
+function openMethods(){
 
 
 showPage("methods");
@@ -1166,27 +1510,13 @@ showPage("methods");
 
 
 
-function selectPayment(method,element){
 
 
 
-paymentMethod=method;
+function choosePayment(method){
 
 
-
-document.querySelectorAll(".pay").forEach(e=>{
-
-e.classList.remove("active");
-
-});
-
-
-
-element.classList.add("active");
-
-
-
-setTimeout(()=>{
+selectedPayment=method;
 
 
 createInvoice();
@@ -1195,10 +1525,6 @@ createInvoice();
 showPage("invoicePage");
 
 
-},500);
-
-
-
 }
 
 
@@ -1208,35 +1534,27 @@ showPage("invoicePage");
 
 
 
-
-// إنشاء الفاتورة
-
 function createInvoice(){
+
 
 
 let number="";
 
 
 
-if(paymentMethod=="Vodafone Cash"){
+if(selectedPayment=="Vodafone Cash")
 
 number="01034381180";
 
-}
 
-
-if(paymentMethod=="InstaPay"){
+if(selectedPayment=="InstaPay")
 
 number="01039680922";
 
-}
 
-
-if(paymentMethod=="Etisalat Cash"){
+if(selectedPayment=="Etisalat Cash")
 
 number="01158753653";
-
-}
 
 
 
@@ -1252,14 +1570,40 @@ if(selectedPlan=="6 شهور" || selectedPlan=="12 شهر"){
 refund=
 
 `
-
-<div style="background:#ede9fe;padding:10px;border-radius:10px;margin-top:10px">
-
-🔄 يوجد استرداد 50% من قيمة الاشتراك بعد التفعيل.
-
 <br>
+🔄 يوجد استرداد 50% بعد التفعيل على نفس طريقة الدفع.
+`;
 
-يتم الاسترداد على نفس طريقة الدفع المستخدمة.
+refundBox.style.display="block";
+
+
+}else{
+
+
+refundBox.style.display="none";
+
+
+}
+
+
+
+invoiceBox.innerHTML=
+
+`
+
+<div class="info">
+
+<p>الباقة: Unlimited ${selectedPlan}</p>
+
+<p>طريقة الدفع: ${selectedPayment}</p>
+
+<p>رقم التحويل: ${number}</p>
+
+<p>المبلغ: ${selectedPrice} جنيه</p>
+
+
+${refund}
+
 
 </div>
 
@@ -1267,69 +1611,6 @@ refund=
 
 
 
-document.getElementById("refundArea").style.display="block";
-
-
-
-}else{
-
-
-document.getElementById("refundArea").style.display="none";
-
-
-}
-
-
-
-
-
-
-document.getElementById("invoiceData").innerHTML=
-
-`
-
-<p>
-الباقة:
-<b>
-Unlimited ${selectedPlan}
-</b>
-</p>
-
-
-<p>
-طريقة الدفع:
-<b>
-${paymentMethod}
-</b>
-</p>
-
-
-
-<p>
-رقم التحويل:
-<b>
-${number}
-</b>
-</p>
-
-
-
-<p>
-السعر النهائي:
-<b>
-${selectedPrice} جنيه
-</b>
-</p>
-
-
-
-${refund}
-
-
-`;
-
-
-
 }
 
 
@@ -1339,39 +1620,19 @@ ${refund}
 
 
 
-
-
-// الواتساب
 
 function sendWhatsapp(){
 
 
+let id=accountID.value.trim();
 
-let id=document.getElementById("userID").value.trim();
-
-
-let phone=document.getElementById("payNumber").value.trim();
-
-
-
-let refund="لا يوجد";
-
-
-
-if(selectedPlan=="6 شهور" || selectedPlan=="12 شهر"){
-
-
-refund=document.getElementById("refundNumber").value.trim();
-
-
-}
-
+let phone=senderNumber.value.trim();
 
 
 if(id=="" || phone==""){
 
 
-alert("من فضلك أكمل البيانات");
+alert("⚠️ أكمل البيانات المطلوبة");
 
 return;
 
@@ -1380,51 +1641,28 @@ return;
 
 
 
-
-if((selectedPlan=="6 شهور" || selectedPlan=="12 شهر") && refund==""){
-
-
-alert("اكتب رقم الاسترداد");
-
-return;
-
-
-}
-
-
-
-
-let message=
+let msg=
 
 `
 
-🧾 طلب اشتراك Timo Club
+🧾 Timo Club Order
 
 
-⭐ الباقة:
-Unlimited ${selectedPlan}
+⭐ Unlimited ${selectedPlan}
 
 
-💰 المبلغ:
-${selectedPrice} جنيه
+💰 ${selectedPrice} جنيه
 
 
-💳 طريقة الدفع:
-${paymentMethod}
+💳 ${selectedPayment}
 
 
-👤 ID الحساب:
+👤 ID:
 ${id}
 
 
-📱 رقم الدفع:
+📱 الدفع من:
 ${phone}
-
-
-🔄 رقم الاسترداد:
-${refund}
-
-
 
 `;
 
@@ -1432,14 +1670,13 @@ ${refund}
 
 window.open(
 
-"https://wa.me/201034381180?text="+encodeURIComponent(message),
+"https://wa.me/201034381180?text="+encodeURIComponent(msg),
 
 "_blank"
 
 );
 
 
-
 }
 
 
@@ -1449,16 +1686,13 @@ window.open(
 
 
 
-
-
-// خدمة العملاء
 
 function openSupport(){
 
 
 window.location.href=
 
-"mailto:tiimoclub@gmail.com?subject=خدمة عملاء Timo Club";
+"mailto:tiimoclub@gmail.com?subject=Timo Club Support";
 
 
 }
@@ -1471,38 +1705,27 @@ window.location.href=
 
 
 
-// الرجوع
-
-function backPage(){
+function goBack(){
 
 
-let page=document.querySelector(".page.active").id;
+let current=document.querySelector(".page.active").id;
 
 
 
-if(page=="invoicePage"){
+if(current=="invoicePage")
 
 showPage("methods");
 
-}
 
-
-else if(page=="methods"){
+else if(current=="methods")
 
 showPage("details");
 
-}
 
-
-else if(page=="details"){
+else if(current=="details")
 
 showPage("plans");
 
-}
-
-
-// لا يرجع لأول صفحة
-
 
 }
 
@@ -1513,33 +1736,21 @@ showPage("plans");
 
 
 
+// العداد
 
-// عداد الزيارات
 
 let visits=localStorage.getItem("timoVisits");
 
 
-
-if(!visits){
+if(!visits)
 
 visits=34123;
-
-}
 
 
 visits++;
 
 
-if(visits>34781){
-
-visits=34781;
-
-}
-
-
-
 localStorage.setItem("timoVisits",visits);
-
 
 
 document.getElementById("visits").innerHTML=
@@ -1550,25 +1761,20 @@ Number(visits).toLocaleString();
 
 
 
+function online(){
 
 
-function updateOnline(){
+document.getElementById("online").innerHTML=
 
-
-let x=Math.floor(Math.random()*440)+184;
-
-
-document.getElementById("online").innerHTML=x;
+Math.floor(Math.random()*440)+184;
 
 
 }
 
 
+setInterval(online,4000);
 
-setInterval(updateOnline,4000);
-
-
-updateOnline();
+online();
 
 
 
@@ -1576,4 +1782,5 @@ updateOnline();
 
 
 </body>
-</html> 
+
+</html>

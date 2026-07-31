@@ -8,7 +8,7 @@
 
 <title>Timo Club Unlimited</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
 
 
 <style>
@@ -24,7 +24,8 @@ font-family:'Cairo',sans-serif;
 body{
 
 background:#070711;
-color:white;
+color:#fff;
+min-height:100vh;
 
 }
 
@@ -32,7 +33,7 @@ color:white;
 :root{
 
 --main:#8b5cf6;
---blue:#2563eb;
+--second:#2563eb;
 --card:#ffffff12;
 
 }
@@ -43,11 +44,12 @@ header{
 
 position:fixed;
 top:0;
+right:0;
 width:100%;
 
 padding:15px;
 
-background:#0008;
+background:#0009;
 
 backdrop-filter:blur(15px);
 
@@ -56,21 +58,20 @@ z-index:100;
 }
 
 
+
 .nav{
 
 display:flex;
-
 justify-content:space-between;
-
 align-items:center;
 
 }
 
 
+
 .logo{
 
 font-size:28px;
-
 font-weight:900;
 
 background:linear-gradient(90deg,#a855f7,#38bdf8);
@@ -82,13 +83,14 @@ color:transparent;
 }
 
 
+
 .stats{
 
 display:flex;
-
 gap:10px;
 
 }
+
 
 
 .stat{
@@ -121,26 +123,24 @@ padding:120px 20px 50px;
 
 display:block;
 
-animation:show .5s;
+animation:fade .4s;
 
 }
 
 
 
-@keyframes show{
+@keyframes fade{
 
 from{
 
 opacity:0;
-
-transform:translateY(30px);
+transform:translateY(25px);
 
 }
 
 to{
 
 opacity:1;
-
 transform:none;
 
 }
@@ -187,15 +187,15 @@ text-align:center;
 
 
 
-.big-logo{
+.logo-box{
 
 width:120px;
 
 height:120px;
 
-border-radius:35px;
-
 margin:auto;
+
+border-radius:35px;
 
 display:flex;
 
@@ -207,7 +207,7 @@ font-size:60px;
 
 font-weight:900;
 
-background:linear-gradient(135deg,var(--main),var(--blue));
+background:linear-gradient(135deg,var(--main),var(--second));
 
 box-shadow:0 0 50px #8b5cf6;
 
@@ -217,11 +217,12 @@ box-shadow:0 0 50px #8b5cf6;
 
 h1{
 
-margin:25px 0;
-
 font-size:35px;
 
+margin:25px 0;
+
 }
+
 
 
 h2{
@@ -238,19 +239,19 @@ button{
 
 border:0;
 
+cursor:pointer;
+
 padding:15px 25px;
 
 border-radius:15px;
-
-background:var(--main);
-
-color:white;
 
 font-size:17px;
 
 font-weight:bold;
 
-cursor:pointer;
+background:var(--main);
+
+color:white;
 
 transition:.3s;
 
@@ -260,17 +261,21 @@ transition:.3s;
 
 button:hover{
 
-transform:translateY(-5px);
+transform:translateY(-4px);
 
 }
 
 
 
-.buttons{
+.choice-buttons{
 
 display:flex;
 
-gap:15px;
+justify-content:center;
+
+align-items:center;
+
+gap:25px;
 
 margin-top:30px;
 
@@ -296,7 +301,7 @@ border-radius:15px;
 
 display:none;
 
-z-index:300;
+z-index:200;
 
 }
 
@@ -324,7 +329,7 @@ text-align:center;
 
 .price{
 
-font-size:30px;
+font-size:32px;
 
 font-weight:900;
 
@@ -334,13 +339,11 @@ color:#38bdf8;
 
 
 
-.old{
+.old-price{
 
 text-decoration:line-through;
 
 color:#aaa;
-
-font-size:18px;
 
 }
 
@@ -358,7 +361,57 @@ border-radius:20px;
 
 
 
-input,select{
+.payment-methods{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+
+gap:15px;
+
+margin:20px 0;
+
+}
+
+
+
+.pay-btn{
+
+background:#ffffff15;
+
+border:1px solid #ffffff30;
+
+padding:20px;
+
+border-radius:20px;
+
+text-align:center;
+
+}
+
+
+
+.pay-btn.active{
+
+background:#8b5cf6;
+
+border-color:white;
+
+}
+
+
+
+.pay-btn.disabled{
+
+opacity:.4;
+
+cursor:not-allowed;
+
+}
+
+
+
+input{
 
 width:100%;
 
@@ -366,9 +419,9 @@ padding:15px;
 
 margin:10px 0;
 
-border-radius:12px;
-
 border:0;
+
+border-radius:12px;
 
 font-size:16px;
 
@@ -384,13 +437,13 @@ padding:15px;
 
 border-radius:15px;
 
-margin-top:20px;
+margin:20px 0;
 
 }
 
 
 
-.back{
+.back-btn{
 
 position:fixed;
 
@@ -404,11 +457,11 @@ height:55px;
 
 border-radius:50%;
 
-display:none;
-
 background:white;
 
-color:black;
+color:#000;
+
+display:none;
 
 z-index:200;
 
@@ -435,6 +488,7 @@ Timo Club
 
 <div class="stats">
 
+
 <div class="stat">
 👥 <span id="visits">34123</span>
 </div>
@@ -444,19 +498,24 @@ Timo Club
 🟢 <span id="online">300</span>
 </div>
 
-</div>
 
+</div>
 
 </div>
 
 </header>
 
 
+
 <div class="toast" id="toast">
+
 🎉 تم تفعيل خصم 10% على جميع الاشتراكات
+
 </div>
 
 
+
+<!-- الصفحة الأولى -->
 
 <div class="page active" id="welcome">
 
@@ -464,7 +523,7 @@ Timo Club
 <div class="card center">
 
 
-<div class="big-logo">
+<div class="logo-box">
 T
 </div>
 
@@ -479,14 +538,15 @@ T
 </p>
 
 
-<div class="buttons">
+<div class="choice-buttons">
+
 
 <button onclick="firstTime()">
 نعم
 </button>
 
 
-<button onclick="notFirst()">
+<button onclick="normalTime()">
 لا
 </button>
 
@@ -501,25 +561,29 @@ T
 
 <div class="page" id="plans">
 
+
 <div class="container">
+
 
 <h2>
 اشتراكات Unlimited
 </h2>
 
 
+
 <div class="cards">
+
 
 
 <div class="card plan">
 
 <h3>شهر</h3>
 
-<div id="monthPrice" class="price">
+<div class="price" id="p1">
 865 جنيه
 </div>
 
-<button onclick="choosePlan('شهر',865,780)">
+<button onclick="selectPlan('شهر','865','780')">
 اختيار
 </button>
 
@@ -532,11 +596,11 @@ T
 
 <h3>شهرين</h3>
 
-<div id="twoPrice" class="price">
+<div class="price" id="p2">
 1450 جنيه
 </div>
 
-<button onclick="choosePlan('شهرين',1450,1305)">
+<button onclick="selectPlan('شهرين','1450','1305')">
 اختيار
 </button>
 
@@ -549,11 +613,11 @@ T
 
 <h3>3 شهور</h3>
 
-<div class="price">
+<div class="price" id="p3">
 2050 جنيه
 </div>
 
-<button onclick="choosePlan('3 شهور',2050,1845)">
+<button onclick="selectPlan('3 شهور','2050','1845')">
 اختيار
 </button>
 
@@ -566,11 +630,11 @@ T
 
 <h3>5 شهور</h3>
 
-<div class="price">
+<div class="price" id="p4">
 2500 جنيه
 </div>
 
-<button onclick="choosePlan('5 شهور',2500,2250)">
+<button onclick="selectPlan('5 شهور','2500','2250')">
 اختيار
 </button>
 
@@ -585,21 +649,24 @@ T
 استرداد 50%
 </span>
 
+
 <h3>
 6 شهور
 </h3>
 
 
-<div class="price">
+<div class="price" id="p5">
 3650 جنيه
 </div>
 
 
-<button onclick="choosePlan('6 شهور',3650,3285)">
+<button onclick="selectPlan('6 شهور','3650','3285')">
 اختيار
 </button>
 
+
 </div>
+
 
 
 
@@ -616,12 +683,12 @@ T
 </h3>
 
 
-<div class="price">
+<div class="price" id="p6">
 6895 جنيه
 </div>
 
 
-<button onclick="choosePlan('12 شهر',6895,6205)">
+<button onclick="selectPlan('12 شهر','6895','6205')">
 اختيار
 </button>
 
@@ -632,9 +699,12 @@ T
 
 </div>
 
-</div>
 
 </div>
+
+
+</div>
+
 
 
 
@@ -642,6 +712,7 @@ T
 
 
 <!-- صفحة التفاصيل -->
+
 
 <div class="page" id="details">
 
@@ -653,17 +724,18 @@ T
 
 
 <h2>
-تفاصيل الاشتراك
+مميزات الاشتراك
 </h2>
 
 
-<div id="detailsText">
+<div id="selectedDetails">
 
 </div>
 
 
 
 <ul>
+
 
 <li>
 ✅ مكالمات فيديو
@@ -681,7 +753,7 @@ T
 
 
 <li>
-✅ جميع خدمات Timo Club خلال فترة الاشتراك
+✅ كل خدمات Timo Club طوال فترة الاشتراك
 </li>
 
 
@@ -691,27 +763,28 @@ T
 
 <div class="warning">
 
-⚠️ اشتراك Unlimited لا يدعم إرسال الهدايا.
+⚠️ الاشتراك لا يدعم إرسال الهدايا.
 
 </div>
 
 
 
-<br>
+<button onclick="goPayment()">
 
+الانتقال للدفع
 
-<button onclick="openPay()">
-اختيار طريقة الدفع
 </button>
 
 
 
 </div>
 
+
 </div>
 
 
 </div>
+
 
 
 
@@ -736,6 +809,7 @@ T
 </h2>
 
 
+
 <div id="invoice">
 
 </div>
@@ -743,52 +817,89 @@ T
 
 
 <h3>
-طرق الدفع
+اختر طريقة الدفع
 </h3>
 
 
 
-<select id="method" onchange="paymentDetails()">
+<div class="payment-methods">
+
+
+<div class="pay-btn" onclick="choosePayment('Vodafone Cash',this)">
+
+🟢
+
+<br>
+
+Vodafone Cash
+
+</div>
 
 
 
-<option>
-اختر طريقة الدفع
-</option>
+<div class="pay-btn" onclick="choosePayment('InstaPay',this)">
 
+🔵
 
-<option value="Vodafone Cash">
-🟢 Vodafone Cash
-</option>
+<br>
 
+InstaPay
 
-<option value="InstaPay">
-🔵 InstaPay
-</option>
-
-
-<option value="Etisalat Cash">
-🟣 Etisalat Cash
-</option>
+</div>
 
 
 
-<option disabled>
-⚫ Orange Cash - غير متاح حالياً
-</option>
+<div class="pay-btn" onclick="choosePayment('Etisalat Cash',this)">
 
+🟣
 
-<option disabled>
-⚫ تحويل بنكي - غير متاح حالياً
-</option>
+<br>
 
+Etisalat Cash
 
-
-</select>
+</div>
 
 
 
-<div id="payBox">
+<div class="pay-btn disabled">
+
+🟠
+
+<br>
+
+Orange Cash
+
+<br>
+
+غير متاح
+
+</div>
+
+
+
+
+<div class="pay-btn disabled">
+
+🏦
+
+<br>
+
+تحويل بنكي
+
+<br>
+
+غير متاح
+
+</div>
+
+
+
+</div>
+
+
+
+
+<div id="paymentInfo">
 
 </div>
 
@@ -797,27 +908,26 @@ T
 <input id="accountID" placeholder="ID حساب Timo Club">
 
 
-<input id="sender" placeholder="رقم الهاتف الذي تم الدفع منه">
+<input id="senderNumber" placeholder="رقم الدفع المرسل منه">
 
 
 
-<div id="refund">
+<div id="refundBox">
 
-<input id="refundNumber" placeholder="رقم الاسترداد للاشتراكات المؤهلة">
+<input id="refundNumber" placeholder="رقم الاسترداد">
 
 </div>
-
 
 
 
 <button onclick="sendOrder()">
+
 إرسال الطلب عبر واتساب
+
 </button>
 
 
 
-</div>
-
 
 </div>
 
@@ -825,26 +935,31 @@ T
 </div>
 
 
+</div>
 
 
 
-<button class="back" id="back" onclick="backPage()">
+
+
+<button class="back-btn" id="backBtn" onclick="goBack()">
+
 ←
-</button> <script>
 
+</button> <script>
 
 let discount=false;
 
 let selectedPlan="";
-let oldPrice="";
-let newPrice="";
+let normalPrice="";
+let discountPrice="";
+let selectedPayment="";
 
 
 
+// تغيير الصفحة
 
-// إظهار الصفحات
+function showPage(page){
 
-function showPage(id){
 
 document.querySelectorAll(".page").forEach(p=>{
 
@@ -853,23 +968,24 @@ p.classList.remove("active");
 });
 
 
-document.getElementById(id).classList.add("active");
+document.getElementById(page).classList.add("active");
 
 
 
-if(id=="welcome"){
+// زر الرجوع يظهر بعد صفحة البداية
 
-document.getElementById("back").style.display="none";
+if(page=="welcome"){
+
+document.getElementById("backBtn").style.display="none";
 
 }else{
 
-document.getElementById("back").style.display="block";
+document.getElementById("backBtn").style.display="block";
 
 }
 
 
 }
-
 
 
 
@@ -887,6 +1003,7 @@ document.getElementById("toast").style.display="block";
 
 setTimeout(()=>{
 
+
 document.getElementById("toast").style.display="none";
 
 
@@ -897,101 +1014,133 @@ showPage("plans");
 
 
 
+updatePrices();
+
+
 }
 
 
 
 
-// مش أول مرة
 
-function notFirst(){
+// ليس أول مرة
+
+function normalTime(){
+
 
 discount=false;
 
 showPage("plans");
 
+updatePrices();
+
 }
+
+
+
+
+
+// تحديث الأسعار
+
+function updatePrices(){
+
+
+let prices=[
+
+["p1","865","780"],
+
+["p2","1450","1305"],
+
+["p3","2050","1845"],
+
+["p4","2500","2250"],
+
+["p5","3650","3285"],
+
+["p6","6895","6205"]
+
+];
+
+
+
+prices.forEach(item=>{
+
+
+let el=document.getElementById(item[0]);
+
+
+if(discount){
+
+
+el.innerHTML=
+
+`
+<span class="old-price">
+${item[1]} جنيه
+</span>
+
+<br>
+
+${item[2]} جنيه
+
+`;
+
+
+
+}else{
+
+
+el.innerHTML=
+
+item[1]+" جنيه";
+
+
+}
+
+
+
+});
+
+
+}
+
+
+
 
 
 
 
 // اختيار الاشتراك
 
-function choosePlan(name,old,newPriceValue){
+function selectPlan(name,old,newp){
 
 
 selectedPlan=name;
 
-oldPrice=old;
+normalPrice=old;
 
-newPrice=newPriceValue;
-
-
-
-let finalPrice=discount ? newPrice : old;
+discountPrice=newp;
 
 
 
-let html="";
+let price=discount ? newp : old;
 
 
-if(discount){
 
-html=
+document.getElementById("selectedDetails").innerHTML=
 
 `
-<p class="old">
-${old} جنيه
-</p>
 
-<p class="price">
-${newPrice} جنيه
-</p>
-
-`;
-
-}else{
-
-
-html=
-
-`
-<p class="price">
-${old} جنيه
-</p>
-
-`;
-
-}
-
-
-
-document.querySelectorAll(".plan").forEach(card=>{
-
-let title=card.querySelector("h3");
-
-if(title && title.innerText==name){
-
-card.querySelector(".price").innerHTML=html;
-
-}
-
-});
-
-
-
-
-document.getElementById("detailsText").innerHTML=
-
-`
 <h3>
-اشتراك Unlimited ${name}
+Unlimited ${name}
 </h3>
 
+
 <p>
-السعر النهائي:
-${finalPrice} جنيه
+السعر:
+${price} جنيه
 </p>
+
 
 `;
 
@@ -1000,18 +1149,21 @@ ${finalPrice} جنيه
 showPage("details");
 
 
+
 }
 
 
 
 
-// فتح الدفع
-
-function openPay(){
 
 
 
-let finalPrice = discount ? newPrice : oldPrice;
+// الذهاب للدفع
+
+function goPayment(){
+
+
+let price=discount ? discountPrice : normalPrice;
 
 
 
@@ -1021,34 +1173,34 @@ document.getElementById("invoice").innerHTML=
 
 <p>
 ⭐ الاشتراك:
-${selectedPlan}
+Unlimited ${selectedPlan}
 </p>
 
 
 <p>
 💰 المبلغ:
-${finalPrice} جنيه
+${price} جنيه
 </p>
 
-
-
 `;
+
 
 
 
 if(selectedPlan=="6 شهور" || selectedPlan=="12 شهر"){
 
 
-document.getElementById("refund").style.display="block";
+document.getElementById("refundBox").style.display="block";
 
 
 }else{
 
 
-document.getElementById("refund").style.display="none";
+document.getElementById("refundBox").style.display="none";
 
 
 }
+
 
 
 
@@ -1062,25 +1214,40 @@ showPage("payment");
 
 
 
-// بيانات الدفع
-
-function paymentDetails(){
 
 
-let method=document.getElementById("method").value;
+// اختيار طريقة الدفع
+
+function choosePayment(type,element){
 
 
-let price=discount ? newPrice : oldPrice;
-
-
-let box=document.getElementById("payBox");
+selectedPayment=type;
 
 
 
-if(method=="Vodafone Cash"){
+document.querySelectorAll(".pay-btn").forEach(btn=>{
+
+btn.classList.remove("active");
+
+});
 
 
-box.innerHTML=
+element.classList.add("active");
+
+
+
+let price=discount ? discountPrice : normalPrice;
+
+
+
+let text="";
+
+
+
+if(type=="Vodafone Cash"){
+
+
+text=
 
 `
 
@@ -1096,22 +1263,25 @@ box.innerHTML=
 01034381180
 </h2>
 
+
 المبلغ:
 ${price} جنيه
+
 
 </div>
 
 `;
 
 
+
 }
 
 
 
-else if(method=="InstaPay"){
+if(type=="InstaPay"){
 
 
-box.innerHTML=
+text=
 
 `
 
@@ -1127,21 +1297,26 @@ box.innerHTML=
 01039680922
 </h2>
 
+
 المبلغ:
 ${price} جنيه
+
 
 </div>
 
 `;
 
+
+
 }
 
 
 
-else if(method=="Etisalat Cash"){
+
+if(type=="Etisalat Cash"){
 
 
-box.innerHTML=
+text=
 
 `
 
@@ -1157,23 +1332,15 @@ box.innerHTML=
 01158753653
 </h2>
 
+
 المبلغ:
 ${price} جنيه
+
 
 </div>
 
 `;
 
-}
-
-
-
-else{
-
-box.innerHTML="";
-
-}
-
 
 
 }
@@ -1181,54 +1348,72 @@ box.innerHTML="";
 
 
 
+document.getElementById("paymentInfo").innerHTML=text;
 
 
-// إرسال الطلب واتساب
+}
+
+
+
+
+
+
+
+// إرسال واتساب
 
 function sendOrder(){
 
 
-let method=document.getElementById("method").value;
+let id=document.getElementById("accountID").value.trim();
 
-let id=document.getElementById("accountID").value;
 
-let sender=document.getElementById("sender").value;
+let sender=document.getElementById("senderNumber").value.trim();
+
 
 
 let refund="لا يوجد";
 
 
+
 if(selectedPlan=="6 شهور" || selectedPlan=="12 شهر"){
 
 
-refund=document.getElementById("refundNumber").value;
+refund=document.getElementById("refundNumber").value.trim();
 
 
 }
 
 
 
-if(
-method=="اختر طريقة الدفع" ||
-id=="" ||
-sender==""
-){
+
+if(selectedPayment==""){
 
 
-alert("⚠️ من فضلك أكمل جميع البيانات المطلوبة");
-
+alert("⚠️ اختر طريقة الدفع");
 
 return;
 
+}
+
+
+
+if(id=="" || sender==""){
+
+
+alert("⚠️ أكمل جميع البيانات المطلوبة");
+
+return;
 
 }
 
 
 
-
 if(
+
 (selectedPlan=="6 شهور" || selectedPlan=="12 شهر")
+
 &&
+
 refund==""
 
 ){
@@ -1236,21 +1421,20 @@ refund==""
 
 alert("⚠️ اكتب رقم الاسترداد");
 
-
 return;
-
 
 }
 
 
 
-let price=discount ? newPrice : oldPrice;
+let price=discount ? discountPrice : normalPrice;
 
 
 
 let message=
 
 `
+
 🧾 طلب اشتراك جديد - Timo Club
 
 
@@ -1263,7 +1447,7 @@ ${price} جنيه
 
 
 💳 طريقة الدفع:
-${method}
+${selectedPayment}
 
 
 👤 ID الحساب:
@@ -1300,35 +1484,32 @@ window.open(whatsapp,"_blank");
 
 
 
-// الرجوع
+// زر الرجوع
 
-function backPage(){
-
-
-let current=
-document.querySelector(".page.active").id;
+function goBack(){
 
 
-
-if(current=="plans"){
-
-showPage("welcome");
-
-}
+let current=document.querySelector(".page.active").id;
 
 
-else if(current=="details"){
 
-showPage("plans");
+if(current=="payment"){
 
-}
-
-
-else if(current=="payment"){
 
 showPage("details");
 
+
 }
+
+else if(current=="details"){
+
+
+showPage("plans");
+
+
+}
+
+// لا يرجع لصفحة نعم ولا
 
 
 
@@ -1342,9 +1523,8 @@ showPage("details");
 
 // عداد الزيارات
 
-let visits=
 
-localStorage.getItem("timoVisits");
+let visits=localStorage.getItem("timoVisits");
 
 
 
@@ -1353,6 +1533,7 @@ if(!visits){
 visits=34123;
 
 }
+
 
 
 visits++;
@@ -1365,43 +1546,34 @@ visits=34781;
 }
 
 
-localStorage.setItem(
-"timoVisits",
-visits
-);
+
+localStorage.setItem("timoVisits",visits);
 
 
 
 document.getElementById("visits").innerHTML=
+
 Number(visits).toLocaleString();
 
 
 
 
 
-// المتواجدون الآن
+function onlineCount(){
 
 
-function online(){
+let n=Math.floor(Math.random()*440)+184;
 
 
-let num=
-Math.floor(Math.random()*(623-184)+184);
-
-
-document.getElementById("online").innerHTML=num;
+document.getElementById("online").innerHTML=n;
 
 
 }
 
 
-setInterval(
-online,
-4000
-);
+setInterval(onlineCount,4000);
 
-
-online();
+onlineCount();
 
 
 
@@ -1409,4 +1581,5 @@ online();
 
 
 </body>
-</html>
+
+</html> 
